@@ -1,0 +1,85 @@
+# imap config
+set folder=imaps://mail.domain.com
+set spoolfile=+INBOX
+set query_command = "~/bin/mutt-ldap.pl %s"
+## gmail config
+# set folder=imaps://imap.gmail.com:993
+# set smtp_url = "smtp://user.name@smtp.gmail.com:587/"
+# set spoolfile="+INBOX"
+# set postponed="+[GMAIL]/Drafts"
+# set trash = "imaps://imap.gmail.com/[Gmail]/Trash"
+# set header_cache =~/.mutt/cache/headers
+# set message_cachedir =~/.mutt/cache/bodies
+# set certificate_file =~/.mutt/certificates
+
+set imap_user=user.name@domain.com
+set imap_keepalive=2
+
+set from="<mail@domain>"
+set use_from=yes
+set use_envelope_from=yes
+#set edit_headers=yes
+set realname="My Name"
+set include=yes
+set mail_check=90
+set timeout=15
+set ascii_chars=yes
+set fast_reply="yes"
+set header_cache=/home/username/muttheaders
+set sort_aux=date-received
+set sort=threads
+set sort=reverse-date-received
+set strict_threads
+set print_command="cat >> /home/username/muttout.txt"
+unset ascii_chars
+set signature="~/.signature"
+set editor="vim"
+
+#macro index M "T.*\n;WN" "Mark all messages as read"
+macro index ",c" "<pipe-message>~/bin/mutt_add_reminder<enter>"
+
+mbox-hook +INBOX /home/username/inbox.archive
+save-hook .* /home/username/oldmail
+
+color index white default  "~N !~T !~F !~p !~P"
+color index brightblack black  "!~N !~T !~F !~p !~P"
+
+# regular tagged messages
+color index black         cyan    "~T !~F !~p !~P"
+# regular flagged messages
+color index black         red     "~F !~p !~P"
+# messages to me
+color index brightblack        black  "~p !~N !~T !~F !~P"
+color index brightyellow  default   "~p ~N !~T !~F !~P"
+color index white        cyan    "~p ~T !~F !~P"
+color index white        red     "~p ~F !~P"
+# messages from me
+color index green         black "~P !~N !~T !~F"
+color index green         default   "~P ~N !~T !~F"
+color index green         cyan    "~P ~T !~F"
+color index green         red     "~P ~F"
+# messages which mention my name in the body
+#color index yellow        default "~b \"phil(_g|\!| gregory| gold)|pgregory\" !~N !~T !~F !~p !~P"
+#color index brightyellow  black   "~b \"phil(_g|\!| gregory| gold)|pgregory\" ~N !~T !~F !~p !~P"
+#color index yellow        cyan    "~b \"phil(_g|\!| gregory| gold)|pgregory\" ~T !~F !~p !~P"
+#color index yellow        red     "~b \"phil(_g|\!| gregory| gold)|pgregory\" ~F !~p !~P"
+# messages which are in reference to my mails
+#color index magenta       default "~x \"(mithrandir|aragorn)\\.aperiodic\\.net|thorin\\.hillmgt\\.com\" !~N !~T !~F !~p !~P"
+#color index magenta       black   "~x \"(mithrandir|aragorn)\\.aperiodic\\.net|thorin\\.hillmgt\\.com\" ~N !~T !~F !~p !~P"
+#color index magenta       cyan    "~x \"(mithrandir|aragorn)\\.aperiodic\\.net|thorin\\.hillmgt\\.com\" ~T !~F !~p !~P"
+#color index magenta       red     "~x \"(mithrandir|aragorn)\\.aperiodic\\.net|thorin\\.hillmgt\\.com\" ~F !~p !~P"
+# messages to root, etc.
+#color index cyan          default "~C \"(root|postmaster|abuse|mailer-daemon)@\" !~N !~P !~p"
+#color index cyan          black   "~C \"(root|postmaster|abuse|mailer-daemon)@\" ~N !~P !~p"
+# big messages
+color index brightred     black "!~N ~z 102400-"
+color index brightred     cyan    "~T !~F !~p !~P ~z 102400-"
+color index brightred     default   "~N ~z 102400-"
+
+# deleted messages
+color index red           black "!~N ~D"
+color index red           default   "~N ~D"
+
+# Show hebrew messages through bidiv filter
+set display_filter="/usr/bin/bidiv"
+

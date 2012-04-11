@@ -1,0 +1,7 @@
+[default]
+# Write your default config options here!
+cache=8192
+cache-min=4
+
+[gnome-mplayer]
+msglevel=all=5
