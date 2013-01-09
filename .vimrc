@@ -164,3 +164,9 @@ let g:ctrlp_custom_ignore = 'vendor/bundle$'
 let g:ctrlp_custom_ignore = '\.git/'
 " prevent deleting words when C-w in insert mode.. actually - do C-w
 imap <C-w> <ESC><C-w>
+
+" Changes for vim-powerline
+let g:Powerline_symbols = 'fancy'
+set laststatus=2
+set encoding=utf-8
+
