@@ -13,11 +13,11 @@ endif
 let colors_name = "tir_black"
 
 " General colors
-hi Normal guifg=#f6f3e8 guibg=black ctermfg=white ctermbg=0
+hi Normal guifg=#f6f3e8 guibg=black ctermfg=white ctermbg=NONE
 hi NonText guifg=#070707 guibg=black ctermfg=232 ctermbg=0
 
 hi Cursor guifg=black guibg=white ctermfg=0 ctermbg=15
-hi LineNr guifg=#3D3D3D guibg=black ctermfg=239 ctermbg=0
+hi LineNr guifg=#3D3D3D guibg=black ctermfg=239 ctermbg=none
 
 "hi VertSplit guifg=#202020 guibg=#202020 ctermfg=235 ctermbg=235  
 "hi VertSplit        guifg=#202020     guibg=#202020     gui=NONE      ctermfg=darkgray    ctermbg=darkgray    cterm=NONE
@@ -45,7 +45,7 @@ hi ModeMsg guifg=black guibg=#C6C5FE gui=bold ctermfg=0 ctermbg=189 cterm=bold
 if version >= 700 " Vim 7.x specific colors
  hi CursorLine guibg=#121212 gui=none ctermbg=234 cterm=none
  hi CursorColumn guibg=#121212 gui=none ctermbg=234 cterm=none
- hi MatchParen guifg=#f6f3e8 guibg=#857b6f gui=bold ctermfg=white ctermbg=darkgray 
+ hi MatchParen guifg=#f6f3e8 guibg=#857b6f gui=bold ctermfg=darkred ctermbg=0 
  hi Pmenu guifg=#f6f3e8 guibg=#444444 ctermfg=white ctermbg=242 
  hi PmenuSel guifg=#000000 guibg=#cae682 ctermfg=0 ctermbg=195 
  "hi Search guifg=#000000 guibg=#cae682 ctermfg=0 ctermbg=195 
