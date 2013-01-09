@@ -1,0 +1,26 @@
+set use_from=yes
+set use_envelope_from=yes
+set include=yes
+set mail_check=90
+set timeout=15
+set ascii_chars=yes
+set fast_reply="yes"
+set header_cache=~/muttheaders
+set sort_aux=date-received
+set sort=threads
+set sort=reverse-date-received
+set strict_threads
+set print_command="cat >> $HOME/muttout.txt"
+unset ascii_chars
+set signature="$HOME/.signature"
+set editor="vim"
+auto_view text/html
+
+mbox-hook +INBOX $HOME/inbox.archive
+save-hook .* $HOME/oldmail
+
+# Show hebrew messages through bidiv filter
+set display_filter="/usr/bin/bidiv"
+
+source ~/.muttrc.colors
+source ~/.muttrc.addressbook
